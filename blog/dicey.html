@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="../images/favicon.ico" />
+<link rel="stylesheet" href="../styles/style.css" />
+<title>Dal9000</title>
+</head>
+<body>
+<ul>
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="../blogs.html">Blog</a></li>
+  <li><a href="../papers.html">Papers</a></li>
+  <li><a href="../notes.html">Notes</a></li>
+  <li><a href="../about.html">About</a></li>
+</ul>
+
+<div class="maintext">
+<h1>Simulating an M-sided die with an N-sided die</h1>
+<p>
+
+Most likely this problem has already been solved a hundred times over by professional and amateur mathematicians. Still, I will provide my solution because it was interesting to think about.
+<br /><br />
+Here is the problem: Given a fair die with N sides how do you mimic the outcomes of a die with M sides? M>N > 1 and M, N are both natural numbers.
+<br /><br />
+The motivation for this problem came from having to pick from 1 of 9 options indiscriminately. I wondered if I could do so with a typical 6-sided die. The solution to this specific problem is easy. But it wasn’t so clear for the general case. The general problem is one of mimicking one discrete uniform probability distribution with another, which my solution does well enough.
+<br /><br />
+For the six and nine case divide the numbers 1-9 into three groups of 3: (1,2,3),(4,5,6),(7,8,9). Now roll the die. If you roll a 1 or 2, pick the first group. A 3 or 4, pick the second group. A 5 or 6, pick the last group. Then you are left with three elements in your group. Let’s say you roll a 4, then we take the group (4,5,6) and split it up into three groups each containing 1 number: (4),(5),(6). Repeat the procedure and you’ll get one of the numbers listed.
+<br /><br />
+If we had a 9-sided die we could say that the probability of selecting any number was 1/9. Easy. Is this true with the 6-sided die simulating 9? Well, in the first step we have 3 groups, each with the same probability of being selected (1/3). The probability is 1/3 since each number of the six-sided die has a 1/6 chance of being chosen and each group has two numbers that select sed group (1/6 + 1/6 = 1/3). Follows this out again for the second step and you’ll have a 1/3 chance of selecting any of the groups of 1.
+<br /><br />
+The die has been rolled twice in this example. The rolls are independent. So the probability of getting any one of 9 numbers is (1/3)(1/3) = 1/9. Yay! Our probability is preserved!
+<br /><br />
+Sadly you can only use method if: For M>N, the set of primes of the prime factorization of M is a subset of the set of primes of the prime factorization of N. My proof is tedious and there probably exists a better one somewhere so I will spare you the details. An intuitive way of understanding the problem is to look at the possibility space of two six-sided dice.
+<br /><br />
+The reason a 6-sided die nicely simulates a 9-sided one is that we can divide the 36 elements of two die rolls into groups of 3, and then we are left with a “3-sided” die problem, and again, 3 divides into 6. The method explained so far can’t deal with a general case of N and M.
+<br /><br />
+But where do the primes come in? Well, since you have to keep dividing smaller sets you need to use numbers that can keep dividing into the number you’re using, say 6, which has 3 and 2 as its primes. Each die roll is independent so the probability is calculated by taking products. So 1/6 to some power. Using primes guarantees that we can divide 6 taken to any power down to its smallest constituents.
+<br /><br />
+After a few moments of thought it’s actually pretty clear how to simulate any M-sided die with an N-sided die. Here is the procedure for M>N.
+<br /><br />
+Step 1. If the set of primes in the prime factorization of M is a subset of the set of primes in the prime factorization of N skip to step 2, else add x to M so that M+x is the smallest number that’s larger than M and whose set of primes in their prime factorization is a subset of the set of primes in the prime factorization of N.
+Step 2. There exists a way of dividing M+x and N such that each has the same number of groups. Map each successive group in N to each in M+x.
+Step 3. The N-sided die will map to one of the groups.Take this group and split it apart in a similar manner. Repeat the process until the group is of size one.
+Step 4. If the final number selected is greater than M ignore it and start over. Otherwise the process is complete.
+How does this look for something like a 6-sided die representing a 57-sided die? The set for the prime factorization of 6 is {2,3}. Add 7 to 57 to get 64, whose prime factorization is 2 x 2 x 2 x 2 x 2 x 2. The set is {2} which is a subset of {2,3}. Let’s pretend we had settled on a 31, how did we get there?
+<br /><br />
+In the first round 1,2,3 maps to 1-32 and 4,5,6 maps to 33-64. We rolled a 3. In the second round 1,2,3 maps to 1-16 and 4,5,6 maps to 17-32. We rolled a 5. In the third round 1,2,3 maps to 17-24 and 4,5,6 maps to 25-32. We rolled a 4. In the fourth round 1,2,3 maps to 25-28 and 4,5,6 maps to 29-32. We rolled 5 again. In the fifth round 1,2,3 maps to 29-30 and 4,5,6 maps to 31-32 . We rolled a 6. In the sixth and final round 1,2,3 maps to 31 and 4,5,6 maps to 32. We rolled a 2 and so we have 31.
+<br /><br />
+For the previous example we have a 1/64 chance of landing on any of the numbers from 1 to 64. We also have to deal with extra numbers that are useless to us. We were after all trying to simulate picking a random number between 1 and 57. If we had landed on 59 we would have had to ignore it and start over.
+<br /><br />
+The goal was to have a 1/57 chance of landing on any of the numbers between 1 and 57. We have a system that gives us a 1/64 chance, technically. But there is a major benefit to this method. It allows us to impartially choose between the 57 options. The probability is uniform, which is good enough for me.
+</p>
+</div>
+
+
+</body>
+</html>

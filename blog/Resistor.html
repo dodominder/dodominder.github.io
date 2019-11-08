@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="../images/favicon.ico" />
+<link rel="stylesheet" href="../styles/style.css" />
+<title>Dal9000</title>
+</head>
+<body>
+<ul>
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="../blogs.html">Blog</a></li>
+  <li><a href="../papers.html">Papers</a></li>
+  <li><a href="../notes.html">Notes</a></li>
+  <li><a href="../about.html">About</a></li>
+</ul>
+
+<div class="maintext">
+<h1>An easy way of getting a desired resistor value given a single resistor value</h1>
+<p>
+<div style="background-color: pink;">
+What follows was fun to think about. It is not meant to be used in practice. I’m not an electrical engineer. Find someone who is.
+</div>
+<br />
+Given a couple of resistors connected in parallel or in series it is easy to calculate the total resistance. Sometimes you need to create a novel resistance and will use the available resistors to do so by connecting them in series and parallel combinations. So I’m sure it has occurred to everyone who has played around with resistors to ask “If I have a box full of this one resistor value, can I create any resistance that I want?”
+<br /><br />
+We have to first make a few assumptions. One assumption is that all the components behave ideally. A fair assumption when one considers that the variance in the value of our resistors should follow a normal distribution so that when you start connecting them up the total variance is less then the expected variance of any individual resistor. The second assumption is that the resistors are all of value R-ohms and that we have as many as we need but not an infinite number of them. The third assumption is that the resistance value we are trying to create, R̃, is a natural number or can be multiplied by a power of 10 to make it a natural number.
+<br /><br />
+There may be more exotic ways of connecting resistors than series and parallel but I use these because they are easy to work with. As a quick review I will remind the reader that two resistors are in series if the electricity exiting one resistor must flow through the second.
+<br /><br />
+The total resistance will be equal to the sum of the resistors. So if the desired value of the resistor I need, R̃, is a multiple of R then I can simply connect a few R valued resistors in series and we’re done. If we assume that the values of the resistors in the picture are both equal to R then R1 + R2 = 2R.
+<br /><br />
+For resistors in parallel the formula becomes more complicated. Unless you are working with the same value for each resistor! In that case we can just say that the value of the circuit will be R/b. Where R is the resistor value and b is the number of resistors in parallel.
+<br /><br />
+Cool. So let’s examine the two possibilities for the resistance R̃ that we want to create. If R̃ ≥ R > 0 then divide R̃ by R. So that R̃ = Rq + r, where q is a positive integer and r < R. Then we put q resistors in series. Now 0 < r/R < 1. Now put r/R in lowest terms.
+<br /><br />
+We can create blocks of resistors in parallel and put these blocks together. If we have α blocks and β resistors in each of these parallel blocks in series then we have a total resistance of R*(α/β) = r. Our goal then should be to choose an α, β such that α/β = r/R. β is an integer greater than or equal to 2 and α is an integer greater than or equal to 1.
+<br /><br />
+The fact that R̃ and R are both positive integers guarantees us that the remainder is a positive rational number and is therefore made by the division of two integers. In reality these two numbers may be insanely large. So if this general method were to be used in real life (which I don’t recommend) then you’d have to take a reasonable α, β that approximates the remainder.
+<br /><br />
+We’ll now go through an example. Say I had a box of 470 ohm resistors and wanted to create a resistance of 1421 ohms. Then 3*470 + 11 = 1421. So I already know I’ll have 3 resistors in series. To get that 11 I have to find an α/β = 11/470. You could just take α = 11 and β = 470. It would be insane to do but would give our answer exactly. Instead we’ll take α = 1 and β = 43 which gives α/β = 0.023255814 ≈ 0.0234042553. Wiring up 43 resistors in parallel would still be crazy, but not as crazy. The whole circuit would look something like this.
+<br /><br />
+The total value is 1420.93 ohms, using 46 resistors. It’s less than 1% off. The exact value can still be obtained but would be more unwieldy. You could also just wire the whole thing up differently and use a lot less resistors. This is just a systematic way to do it. A simple way.
+<br /><br />
+If R > R̃ > 0 then we could just use the same process we used to find the remainder value in the last example. Notice that 1 > R̃/R > 0 so we can let α=R̃ and β=R. As an example, let’s say we have a box of 1500 ohm resistors and want to create 249 ohms. Then 249/1500 = 0.166 ≈ 1/6 = 0.1666… The circuit pictured would give 250 ohms (less than 1% off).
+<br /><br />
+You could use a lot less resistors by making the wiring more complicated. To simplify the process I only looked at blocks of parallel resistors that all have the same value. Mixing the series and parallel configurations up to obtain the same result with a lot less resistors is possible but it’s not as straightforward to do.
+</p>
+</div>
+
+
+</body>
+</html>
