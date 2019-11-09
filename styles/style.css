@@ -54,6 +54,11 @@ padding: 10px 0px;
 display: block;
 }
 
+.navi {
+  width:40%;
+  margin:0 auto;
+  padding: 15px;
+}
 
 table, th, td {
   border: 1px solid black;
