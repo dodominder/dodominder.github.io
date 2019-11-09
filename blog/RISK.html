@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="../images/favicon.ico" />
+<link rel="stylesheet" href="../styles/style.css" />
+<title>Dal9000</title>
+</head>
+<body>
+<ul>
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="../blogs.html">Blog</a></li>
+  <li><a href="../papers.html">Papers</a></li>
+  <li><a href="../notes.html">Notes</a></li>
+  <li><a href="../about.html">About</a></li>
+</ul>
+
+<div class="maintext">
+<h1>RISK</h1>
+<p>
+I used to play the board game RISK with my friends. I love the game, even if we never played it entirely correctly all the time. One thing that drove me nuts though was that some of my players would insist on only using one die when defending themselves.
+
+</p><p>
+
+For those of you unfamiliar with the game. The goal is to conquer the world by battling other armies over territories. If an enemy is on a territory that you want to control you must have enough soldiers on a nearby territory and it must be your turn. If you have enough soldiers you can roll 3 dice when attacking. If the defender has 2 or more soldiers, he may roll at most 2 die in defense. The defender and the attacker may choose to roll less but that is never a wise choice!
+
+
+</p><p>
+
+
+When the attacker rolls three die he picks the two highest values that come out. So if he rolls 4, 1, and a 5, the attacker picks 4 and 5. The attacker's dice are then ordered highest to lowest. The defender does the same thing except he's usually only working with 2 die. The highest value of the attacker goes against the highest value of the defender and so on. If two die match then the defender wins. For every win of a die a soldier is removed. 
+
+</p><p>
+
+
+
+As an example if the attacker rolls 6, 2, 2 and the defender rolls 2, 1. Then the two highest numbers beat the defenders dice and the defender must remove two men. If the attacker rolls 1, 3, 4 and the defender rolls 4, 1 then the attacker and defender each lose 1 soldier.
+
+
+</p><p>
+
+
+A few friends would choose to roll 1 die in defense while the attacker would roll 3. The reasoning was "If you lose, you only lose one soldier." I kept trying to explain that using only 1 die in defense means giving the opponent more options when selecting a higher valued die. 
+
+
+</p><p>
+
+
+You can work out how you're always better off defending yourself with two die mathematically. I just decided today to write a short script that went through 100,000 trials of 3 dice versus 2 dice and 3 dice versus 1 die and 2 dice versus 2 dice, etc...
+
+</p>
+
+
+<p>
+Simulated results
+<table border="1" style="text-align: center;"><tbody>
+<tr><td>Attacking with: </td><td>2 dice</td><td>1 die</td><td>3 dice</td><td>2 dice</td><td>3 dice</td></tr>
+<tr><td>Defending with:</td><td>2 dice</td><td>1 die</td><td>2 dice</td><td>1 die</td><td>1 die</td></tr>
+<tr><td>Attacker Advantage:</td><td><span style="color: red;">-36</span>%</td><td><span style="color: red;">-29</span>%</td><td><span style="color: blue;">17</span>%</td><td><span style="color: blue;">37</span>%</td><td><span style="color: blue;">95</span>%</td></tr>
+</tbody></table>
+</p>
+
+<p><b>Conclusion</b>: If you can, never use one die to defend yourself and don't attack an opponent if the number of dice you must use is the same!</p>
+
+
+
+<pre><code>
+*****CODE***Python3*********
+
+import random
+
+num_of_trials = 100000
+
+"""attacker_wins counts the number of soldiers 
+lost by the defender. Keep that in mind!"""
+attacker_wins = 0
+defender_wins = 0
+
+def attacker():
+    three_dice = []
+    for i in range(3):
+        three_dice.append(random.randint(1,6))
+    three_dice.sort(reverse=True)
+    return three_dice
+
+def defender():
+    two_dice = []
+    for i in range(2):
+        two_dice.append(random.randint(1,6))
+    two_dice.sort(reverse=True)
+    return two_dice
+
+for i in range(num_of_trials):
+    if attacker()[0] > defender()[0]:
+        attacker_wins += 1
+    else:
+        defender_wins += 1
+    if attacker()[1] > defender()[1]:
+        attacker_wins += 1
+    else:
+        defender_wins += 1
+
+
+
+print(attacker_wins)
+print(defender_wins)
+print(attacker_wins/defender_wins)
+</code></pre>
+
+
+</div>
+
+
+</body>
+</html>

@@ -22,9 +22,15 @@ li a:hover {
   background-color: #111;
 }
 
+body {
+    background-color: rgba(225, 225, 225, 0.9);
+}
+
 .maintext {
-width: 50em;
-padding-left: 10em;
+	width:40%;
+	margin:0 auto;
+  background-color: white;
+  padding: 15px;
 }
 
 .bloglist a {
