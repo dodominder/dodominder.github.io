@@ -4,26 +4,28 @@
   padding: 0;
   overflow: hidden;
   background-color: #333;
+  text-align: center;
 }
 
 li {
-  float: left;
+  display: inline-block;
+  font-family: monospace;
 }
 
 li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 14px;
   text-decoration: none;
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: rgb(84,187,219);
 }
 
 body {
-    background-color: rgba(225, 225, 225, 0.9);
+    background-color: black;
 }
 
 .maintext {
@@ -58,6 +60,25 @@ display: block;
   width:40%;
   margin:0 auto;
   padding: 15px;
+}
+
+.dal {
+  font-size:15px; 
+  font-family: Helvetica; 
+  display:inline; color:white; 
+  background-color: rgb(84,187,219); 
+  border:3px rgb(84,187,219) solid; 
+  padding: 5px 0px 5px 20px;
+}
+
+.dalleft {
+  padding: 5px 10px 5px 10px; 
+  background-color: rgb(84,187,219);
+}
+
+.dalright {
+  padding: 5px 10px 5px 5px; 
+  background-color: black;
 }
 
 table, th, td {
