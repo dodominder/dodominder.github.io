@@ -62,24 +62,12 @@ display: block;
   padding: 15px;
 }
 
-.dal {
-  font-size:15px; 
-  font-family: Helvetica; 
-  display:inline; color:white; 
-  background-color: rgb(84,187,219); 
-  border:3px rgb(84,187,219) solid; 
-  padding: 5px 0px 5px 20px;
+.dallogo {
+  max-height: 30px; 
+  float: left; 
 }
 
-.dalleft {
-  padding: 5px 10px 5px 10px; 
-  background-color: rgb(84,187,219);
-}
 
-.dalright {
-  padding: 5px 10px 5px 5px; 
-  background-color: black;
-}
 
 table, th, td {
   border: 1px solid black;
