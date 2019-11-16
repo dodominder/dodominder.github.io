@@ -97,7 +97,7 @@ Los perros son del muchacho
 
 REMEMBER de+el -> del	"of the"
 
-El concierto es el el club	The concert is (takes place) in the club
+El concierto es en el club	The concert is (takes place) in the club
 La protesta es en la capital	The protest is (takes place) in the capital
 
 More vocab:
