@@ -1,0 +1,74 @@
+Ser, Estar	to be
+cantar		to sing
+bailar		to dance
+bajar		to go down, to descend
+caminar 	to walk
+cocinar		to cook
+comprar		to buy
+contestar	to answer
+descansar	to rest
+entrar (en)	to enter (in)
+escuchar	to listen to 
+estudiar	to study
+hablar		to speak
+limpiar		to clean
+llegar		to arrive
+mirar		to look at
+nadar		to swim
+practicar	to practice
+regresar	to return 
+trabajar	to work
+viajar		to travel
+comer		to eat
+aprender	to learn
+beber		to drink
+comprender	to understand
+correr		to run
+leer		to read
+meter		to put in 
+prender		to turn on
+romper		to break
+vender		to sell
+abrir		to open
+compartir 	to share
+decidir		to decide
+describir	to describe
+escribir	to write
+subir		to go up, to ascend
+discutir	to discuss
+recibir		to receive
+sufrir		to suffer
+deber		should, ought to, must
+ganar		to win, to eat
+llevar		to carry, to wear
+pasar		to pass (by), to happen, to spend(time)
+tocar		to touch, to play
+tomar 		to take, to have
+cerrar		to open
+pensar		to think
+empezar		to begin
+almorzar	to lunch
+encontrar	to find
+recordar	to remember
+jugar		to play
+entender	to understand
+querer		to want
+perder		to lose
+devolver	to return
+poder		to be able, can, may
+volver		to return 
+hacer		to do, to make
+poner		to put
+saber		to know
+ver		to see
+mentir		to lie
+preferir	to prefer
+venir		to come
+pedir		to ask
+seguir		to follow, to continue
+repetir		to repeat
+servir		to serve
+sonreír		to smile
+dormir		to sleep
+oír 		to hear
+salir		to leave, to exit, to go
