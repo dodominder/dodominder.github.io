@@ -43,9 +43,13 @@ The majority of natural numbers are coprime. So this method won't work. Still we
 Here is the procedure for M>N.
 </p><p>
 Step 1. If the set of primes in the prime factorization of M is a subset of the set of primes in the prime factorization of N skip to step 2, else add x to M so that M+x is the smallest number that’s larger than M and whose set of primes in their prime factorization is a subset of the set of primes in the prime factorization of N.
+<br />
 Step 2. There exists a way of dividing M+x and N such that each has the same number of groups. Map each successive group in N to each in M+x.
+<br />
 Step 3. The N-sided die will map to one of the groups.Take this group and split it apart in a similar manner. Repeat the process until the group is of size one.
+<br />
 Step 4. If the final number selected is greater than M ignore it and start over. Otherwise the process is complete.
+</p><p>
 How does this look for something like a 6-sided die representing a 57-sided die? The set for the prime factorization of 6 is {2,3}. Add 7 to 57 to get 64, whose prime factorization is 2 x 2 x 2 x 2 x 2 x 2. The set is {2} which is a subset of {2,3}. Let’s pretend we had settled on a 31, how did we get there?
 </p><p>
 In the first round 1,2,3 maps to 1-32 and 4,5,6 maps to 33-64. We rolled a 3. In the second round 1,2,3 maps to 1-16 and 4,5,6 maps to 17-32. We rolled a 5. In the third round 1,2,3 maps to 17-24 and 4,5,6 maps to 25-32. We rolled a 4. In the fourth round 1,2,3 maps to 25-28 and 4,5,6 maps to 29-32. We rolled 5 again. In the fifth round 1,2,3 maps to 29-30 and 4,5,6 maps to 31-32 . We rolled a 6. In the sixth and final round 1,2,3 maps to 31 and 4,5,6 maps to 32. We rolled a 2 and so we have 31.
