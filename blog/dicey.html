@@ -39,7 +39,8 @@ The reason a 6-sided die nicely simulates a 9-sided one is that we can divide th
 </p><p>
 But where do the primes come in? Well, since you have to keep dividing smaller sets you need to use numbers that can keep dividing into the number you’re using, say 6, which has 3 and 2 as its primes. Each die roll is independent so the probability is calculated by taking products. So 1/6 to some power. Using primes guarantees that we can divide 6 taken to any power down to its smallest constituents.
 </p><p>
-After a few moments of thought it’s actually pretty clear how to simulate any M-sided die with an N-sided die. Here is the procedure for M>N.
+The majority of natural numbers are coprime. So this method won't work. Still we may have a method to use the N-sided die to chose among the M-options uniformly.<br />
+Here is the procedure for M>N.
 </p><p>
 Step 1. If the set of primes in the prime factorization of M is a subset of the set of primes in the prime factorization of N skip to step 2, else add x to M so that M+x is the smallest number that’s larger than M and whose set of primes in their prime factorization is a subset of the set of primes in the prime factorization of N.
 Step 2. There exists a way of dividing M+x and N such that each has the same number of groups. Map each successive group in N to each in M+x.
