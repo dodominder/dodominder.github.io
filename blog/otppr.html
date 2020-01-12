@@ -75,6 +75,9 @@ If two parties who wished to exchange information via a OTP they could avoid the
 <p> It may appear that we can avoid the issue by letting the seed be randomly chosen for each message. Two parties could, for example, decide to use outcomes of football games to determine the seed value. This would be random but it would also make the encryption less secure! If the seed is randomly chosen then eventually the same seed will be used more than once. The point of the OTP is to never reuse the same numbers. EVER. 
 </p>
 <p>
+  A company called Silicon Graphics created Lavarand. This was a piece of hardware that used random data collected from lava lamps to seed a PRG. I don't see how this final step can allow the end result to be truely random. The problem, to me, is that there will always exist sequences of random numbers that can't be obtained from a PRG. Isn't any set of possible sequences from a PRG a strict subset of the set of truely random sequences?
+</p>
+<p>
 To encrypt something that's truely unbreakable use truely random digits.
 </p>
 <p>
