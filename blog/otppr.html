@@ -38,7 +38,7 @@ Hello -> 8 5 12 12 15
 
 
 If the sum goes beyond 26 wrap around the alphabet. <br />
-a &#8803; b + y mod (26)
+a &#8803; b + y mod (26) <br />
 To decrypt the text reverse the operation using the random digits. 
 So far we have only used 26 letters. It would be nice to include more typographical symbols and perhaps include modular arithmetic, which has inverses for every element except 0 when the modulus is prime.
 
@@ -60,7 +60,7 @@ In this example the symbol ? encrypts as <br />
  a = 1 &#8803; 32 mod(31) <br />
 </p>
 <p>
-Sadly we can't use multiplication even if the modulus is prime. Zero doesn't have an inverse but we can get around this fact if we restrict our random digits to numbers 1 through 9. Otherwise we are stuck with addition and subtraction.</p>
+Sadly we can't use multiplication even if the modulus is prime. Zero doesn't have an inverse. We can get around this fact if we restrict our random digits to the numbers 1 through 9. Otherwise we are stuck with addition and subtraction.</p>
 <p>
 The OTP is already unbreakable so it is superfluous to use two digits to encrypt each symbol. This was just to demonstrate other possible operations.
 </p>
