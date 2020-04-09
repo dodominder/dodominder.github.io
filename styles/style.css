@@ -67,11 +67,19 @@ display: block;
   float: left; 
 }
 
-
-
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 5px;
   text-align: center;
+}
+
+.normal {
+  display: inline-block;
+  font-family: verdana;
+  list-style-type: circle;
+  margin: 5px;
+  overflow: wrap-around;
+  background-color: white;
+  text-align: left;
 }
