@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Inventory Demo</title>
+</head>
+<body style="padding-top: 40px;">
+
+<script>
+var newsrc = "boatooo.jpeg";
+var newsource = "kayakooo.jpeg";
+var aqua = "aquacycleooo.png";
+
+
+function changeImageBoat(name) {
+  if ( newsrc == "boatooo.jpeg" ) {
+    document.images[name].src = "boatooo.jpeg";
+    document.images[name].alt = "No Boat";
+    newsrc  = "boato.jpeg";
+  }
+  else {
+    document.images[name].src = "boato.jpeg";
+    document.images[name].alt = "Boat";
+    newsrc  = "boatooo.jpeg";
+  }
+}
+
+function changeImage(name) {
+  if ( newsrc == "kayakooo.jpeg" ) {
+    document.images[name].src = "kayakooo.jpeg";
+    document.images[name].alt = "No Boat";
+    newsrc  = "kayako.jpeg";
+  }
+  else {
+    document.images[name].src = "kayako.jpeg";
+    document.images[name].alt = "Boat";
+    newsrc  = "kayakooo.jpeg";
+  }
+}
+
+function changeImageAqua(name) {
+  if ( newsrc == "aquacycleooo.png" ) {
+    document.images[name].src = "aquacycleooo.png";
+    document.images[name].alt = "No Boat";
+    newsrc  = "aquacycle.png";
+  }
+  else {
+    document.images[name].src = "aquacycle.png";
+    document.images[name].alt = "Boat";
+    newsrc  = "aquacycleooo.png";
+  }
+}
+</script>
+
+<div style="max-width:40%;  margin: auto;">
+<img src="boato.jpeg" width="100px" height="100px" id="pic1" onclick="changeImageBoat('pic1')" />
+<img src="boato.jpeg" width="100px" height="100px" id="pic2" onclick="changeImageBoat('pic2')" />
+<img src="boato.jpeg" width="100px" height="100px" id="pic3" onclick="changeImageBoat('pic3')" />
+</div>
+
+<div style="max-width:40%;  margin: auto; ">
+<img src="kayako.jpeg" width="100px" height="100px" id="pic4" onclick="changeImage('pic4')" />
+<img src="kayako.jpeg" width="100px" height="100px" id="pic5" onclick="changeImage('pic5')" />
+<img src="kayako.jpeg" width="100px" height="100px" id="pic6" onclick="changeImage('pic6')" />
+<img src="kayako.jpeg" width="100px" height="100px" id="pic7" onclick="changeImage('pic7')" />
+</div>
+
+<div style="max-width:40%;  margin: auto;">
+<img src="aquacycle.png" width="100px" height="100px" id="pic8" onclick="changeImageAqua('pic8')" />
+</div>
+
+
+</body>
+</html>
+
