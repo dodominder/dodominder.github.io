@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.radio_dial_times {background-color: #CFE263;}
+.boat {height: 100px;}
+.boat_with_timer{ display:block; float:left;}
+.main_div { max-width:90%;  margin: auto; margin-bottom: 30px; clear: both; }
+h4 { color: red;}
+</style>
+
+<title>Boat House Rental Application</title>
+
+</head>
+<body>
+<div class="main_div">
+<p class="radio_dial_times">Select Rental Length:
+  <input type="radio" name="boatTime" onclick="myFunction(this.value)" value="30" checked>30 min 
+  <input type="radio" name="boatTime" onclick="myFunction(this.value)" value="60">1 hour
+  <input type="radio" name="boatTime" onclick="myFunction(this.value)" value="120">2 hours
+  <input type="radio" name="boatTime" onclick="myFunction(this.value)" value="180">3 hours
+  <input type="radio" name="boatTime" onclick="myFunction(this.value)" value="240">4 hours
+  <input type="radio" name="boatTime" onclick="myFunction(this.value)" value="480">All Day
+</p>
+<p>Select Boat</p>
+</div>
+
+<div class="main_div"> 
+
+ 	<div class="boat_with_timer">
+	<img class="boat" id="paddleBoat1"  onclick="PaddleBoatOne.isAvailable()">
+	<p id="paddleBoat_timer1">0</p>
+	</div>
+
+ 	<div class="boat_with_timer">
+	<img class="boat" id="paddleBoat2"  onclick="PaddleBoatTwo.isAvailable()">
+	<p id="paddleBoat_timer2">0</p>
+	</div>
+
+ 	<div class="boat_with_timer">
+	<img class="boat" id="paddleBoat3"  onclick="PaddleBoatThree.isAvailable()">
+	<p id="paddleBoat_timer3">0</p>
+	</div>
+
+ 	<div class="boat_with_timer">
+	<img class="boat" id="paddleBoat4"  onclick="PaddleBoatFour.isAvailable()">
+	<p id="paddleBoat_timer4">0</p>
+	</div>
+
+ 	<div class="boat_with_timer">
+	<img class="boat" id="paddleBoat5"  onclick="PaddleBoatFive.isAvailable()">
+	<p id="paddleBoat_timer5">0</p>
+	</div>
+
+ 	<div class="boat_with_timer">
+	<img class="boat" id="paddleBoat6"  onclick="PaddleBoatSix.isAvailable()">
+	<p id="paddleBoat_timer6">0</p>
+	</div>
+
+ 	<div class="boat_with_timer">
+	<img class="boat" id="paddleBoat7"  onclick="PaddleBoatSeven.isAvailable()">
+	<p id="paddleBoat_timer7">0</p>
+	</div>
+
+ 	<div class="boat_with_timer">
+	<img class="boat" id="paddleBoat8"  onclick="PaddleBoatEight.isAvailable()">
+	<p id="paddleBoat_timer8">0</p>
+	</div>
+
+ 	<div class="boat_with_timer">
+	<img class="boat" id="aquaCycle1"  onclick="AquaCycleOne.isAvailable()">
+	<p id="aquaCycle_timer1">0</p>
+	</div>
+
+ 	<div class="boat_with_timer">
+	<img class="boat" id="aquaCycle2"  onclick="AquaCycleTwo.isAvailable()">
+	<p id="aquaCycle_timer2">0</p>
+	</div>
+
+</div>
+
+<div class="main_div"> 
+ 	<div class="boat_with_timer">
+	<img class="boat" id="DoubleKayak1"  onclick="DoubleKayakOne.isAvailable()">
+	<p id="DoubleKayak_timer1">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="DoubleKayak2"  onclick="DoubleKayakTwo.isAvailable()">
+	<p id="DoubleKayak_timer2">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="DoubleKayak3"  onclick="DoubleKayakThree.isAvailable()">
+	<p id="DoubleKayak_timer3">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="DoubleKayak4"  onclick="DoubleKayakFour.isAvailable()">
+	<p id="DoubleKayak_timer4">0</p>
+	</div>
+
+ 	<div class="boat_with_timer">
+	<img class="boat" id="canoe1"  onclick="canoeOne.isAvailable()">
+	<p id="canoe_timer1">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="canoe2"  onclick="canoeTwo.isAvailable()">
+	<p id="canoe_timer2">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="canoe3"  onclick="canoeThree.isAvailable()">
+	<p id="canoe_timer3">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="canoe4"  onclick="canoeFour.isAvailable()">
+	<p id="canoe_timer4">0</p>
+	</div>
+</div>
+
+<div class="main_div"> 
+ 	<div class="boat_with_timer">
+	<img class="boat" id="SingleKayak1"  onclick="SingleKayakOne.isAvailable()">
+	<p id="SingleKayak_timer1">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="SingleKayak2"  onclick="SingleKayakTwo.isAvailable()">
+	<p id="SingleKayak_timer2">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="SingleKayak3"  onclick="SingleKayakThree.isAvailable()">
+	<p id="SingleKayak_timer3">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="SingleKayak4"  onclick="SingleKayakFour.isAvailable()">
+	<p id="SingleKayak_timer4">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="SingleKayak5"  onclick="SingleKayakFive.isAvailable()">
+	<p id="SingleKayak_timer5">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="SingleKayak6"  onclick="SingleKayakSix.isAvailable()">
+	<p id="SingleKayak_timer6">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="SingleKayak7"  onclick="SingleKayakSeven.isAvailable()">
+	<p id="SingleKayak_timer7">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="SingleKayak8"  onclick="SingleKayakEight.isAvailable()">
+	<p id="SingleKayak_timer8">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="rowboat1"  onclick="rowboatOne.isAvailable()">
+	<p id="rowboat_timer1">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="rowboat2"  onclick="rowboatTwo.isAvailable()">
+	<p id="rowboat_timer2">0</p>
+	</div>
+ 	<div class="boat_with_timer">
+	<img class="boat" id="rowboat3"  onclick="rowboatThree.isAvailable()">
+	<p id="rowboat_timer3">0</p>
+	</div>
+</div>
+
+
+<div class="main_div"> 
+<h4>This web browser must be running javascript for this page to work.</h4>
+</div>
+
+<script>
+
+function Boat(available, imageId, labelId, colorImage, blackAndWhiteImg) {
+  var interval;
+  document.getElementById(imageId).src = colorImage;
+  this.available = available;
+  this.imageId = imageId;
+  this.isAvailable = function() {
+  		if (this.available){
+            	this.available = false;
+            	document.getElementById(imageId).src = blackAndWhiteImg;
+		var rental_Length = getRentalLength();
+		this.countdown(labelId, rental_Length);
+
+            }
+            else{
+            	this.available = true;
+            	document.getElementById(imageId).src = colorImage;
+		clearInterval(interval);
+		document.getElementById(labelId).innerHTML = 0;
+
+            }
+    }
+
+  this.countdown = function(element, minutes){
+
+	        var el = document.getElementById(element);
+		el.innerHTML = minutes + ' minutes';
+    		interval = setInterval(function() {
+           	if(minutes == 0) {
+                (el.innerHTML = "EXPIRED!");     
+                clearInterval(interval);
+                return;
+            } else {
+                minutes--;
+        }
+
+        if(minutes > 0) {
+            var minute_text = minutes + (minutes > 1 ? ' minutes' : ' minute');
+        } else {
+            var minute_text = '';
+        }
+        el.innerHTML = minute_text;
+    }, 60000);
+
+	    }
+
+}
+
+
+function getRentalLength() { 
+   var rentalLengthOptions = document.getElementsByName('boatTime');     
+            for(i = 0; i < rentalLengthOptions.length; i++) { 
+                if(rentalLengthOptions[i].checked){
+				return parseInt(rentalLengthOptions[i].value);
+			}
+            } 
+        } 
+
+
+
+var paddleBoat_color_image = "paddleboat.png";
+var paddleBoat_bw_image = "paddleboatbw.png";
+
+var aquaCycle_color_image = "tricycle.jpeg";
+var aquaCycle_bw_image = "tricyclebw.jpeg";
+
+var kayak_doubles_color_image = "doublekayak.jpg";
+var kayak_doubles_bw_image = "doublekayakbw.jpg";
+var kayak_singles_color_image = "singlekayak.png";
+var kayak_singles_bw_image = "singlekayakbw.png";
+var canoe_color_image = "canoe.jpeg";
+var canoe_bw_image = "canoebw.jpeg";
+var rowboat_color_image = "rowboat.jpeg";
+var rowboat_bw_image = "rowboatbw.jpeg";
+
+
+
+var PaddleBoatOne = new Boat(true, "paddleBoat1", "paddleBoat_timer1", paddleBoat_color_image, paddleBoat_bw_image);
+var PaddleBoatTwo = new Boat(true, "paddleBoat2", "paddleBoat_timer2", paddleBoat_color_image, paddleBoat_bw_image);
+var PaddleBoatThree = new Boat(true, "paddleBoat3", "paddleBoat_timer3", paddleBoat_color_image, paddleBoat_bw_image);
+var PaddleBoatFour = new Boat(true, "paddleBoat4", "paddleBoat_timer4", paddleBoat_color_image, paddleBoat_bw_image);
+var PaddleBoatFive = new Boat(true, "paddleBoat5", "paddleBoat_timer5", paddleBoat_color_image, paddleBoat_bw_image);
+var PaddleBoatSix = new Boat(true, "paddleBoat6", "paddleBoat_timer6", paddleBoat_color_image, paddleBoat_bw_image);
+var PaddleBoatSeven = new Boat(true, "paddleBoat7", "paddleBoat_timer7", paddleBoat_color_image, paddleBoat_bw_image);
+var PaddleBoatEight = new Boat(true, "paddleBoat8", "paddleBoat_timer8", paddleBoat_color_image, paddleBoat_bw_image);
+
+var AquaCycleOne = new Boat(true, "aquaCycle1", "aquaCycle_timer1", aquaCycle_color_image, aquaCycle_bw_image);
+var AquaCycleTwo = new Boat(true, "aquaCycle2", "aquaCycle_timer2", aquaCycle_color_image, aquaCycle_bw_image);
+
+var DoubleKayakOne = new Boat(true, "DoubleKayak1", "DoubleKayak_timer1", kayak_doubles_color_image, kayak_doubles_bw_image);
+var DoubleKayakTwo = new Boat(true, "DoubleKayak2", "DoubleKayak_timer2", kayak_doubles_color_image, kayak_doubles_bw_image);
+var DoubleKayakThree = new Boat(true, "DoubleKayak3", "DoubleKayak_timer3", kayak_doubles_color_image, kayak_doubles_bw_image);
+var DoubleKayakFour = new Boat(true, "DoubleKayak4", "DoubleKayak_timer4", kayak_doubles_color_image, kayak_doubles_bw_image);
+
+var canoeOne = new Boat(true, "canoe1", "canoe_timer1", canoe_color_image, canoe_bw_image);
+var canoeTwo = new Boat(true, "canoe2", "canoe_timer2", canoe_color_image, canoe_bw_image);
+var canoeThree = new Boat(true, "canoe3", "canoe_timer3", canoe_color_image, canoe_bw_image);
+var canoeFour = new Boat(true, "canoe4", "canoe_timer4", canoe_color_image, canoe_bw_image);
+
+var SingleKayakOne = new Boat(true, "SingleKayak1", "SingleKayak_timer1", kayak_singles_color_image, kayak_singles_bw_image);
+var SingleKayakTwo = new Boat(true, "SingleKayak2", "SingleKayak_timer2", kayak_singles_color_image, kayak_singles_bw_image);
+var SingleKayakThree = new Boat(true, "SingleKayak3", "SingleKayak_timer3", kayak_singles_color_image, kayak_singles_bw_image);
+var SingleKayakFour = new Boat(true, "SingleKayak4", "SingleKayak_timer4", kayak_singles_color_image, kayak_singles_bw_image);
+var SingleKayakFive = new Boat(true, "SingleKayak5", "SingleKayak_timer5", kayak_singles_color_image, kayak_singles_bw_image);
+var SingleKayakSix = new Boat(true, "SingleKayak6", "SingleKayak_timer6", kayak_singles_color_image, kayak_singles_bw_image);
+var SingleKayakSeven = new Boat(true, "SingleKayak7", "SingleKayak_timer7", kayak_singles_color_image, kayak_singles_bw_image);
+var SingleKayakEight = new Boat(true, "SingleKayak8", "SingleKayak_timer8", kayak_singles_color_image, kayak_singles_bw_image);
+
+var rowboatOne = new Boat(true, "rowboat1", "rowboat_timer1", rowboat_color_image, rowboat_bw_image);
+var rowboatTwo = new Boat(true, "rowboat2", "rowboat_timer2", rowboat_color_image, rowboat_bw_image);
+var rowboatThree = new Boat(true, "rowboat3", "rowboat_timer3", rowboat_color_image, rowboat_bw_image);
+
+
+</script>
+
+</body>
+</html>
