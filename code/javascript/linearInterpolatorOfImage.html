@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interpolator</title>
+<style>
+	.paraButtons {background-color: lime;	padding: 2px; display: inline; border:2px solid black;}	
+	.paraButtons:hover {background-color:green;}
+</style>
+</head>
+<body>
+
+
+<p></p>
+
+<p class="paraButtons"><label for="file" style="cursor: pointer;">Upload Image</label></p>
+<p style="display: none;" ><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+
+<p id="clearOrDisplay" class="paraButtons" onclick="loadImage()">Display Image</p>
+<p class="paraButtons" onclick="clearPoints()">Clear Points</p>
+<p class="paraButtons" onclick="interpolate()">Interpolate</p>
+
+<p id="coords"></p>
+<p id="message"></p>
+
+<canvas  id="myCanvas" width="0" height="0">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+
+
+<script>
+
+var img = new Image();
+var coordinates = [];
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+
+function loadFile(event) {
+	img.src = URL.createObjectURL(event.target.files[0]);
+}
+
+
+function loadImage(){
+  	c.width = img.width;
+ 	c.height = img.height;
+	ctx.drawImage(img, 0, 0);
+	c.addEventListener("click", getCoors);
+	coordinates = [];
+	document.getElementById("coords").innerHTML = "(0,0)";
+	document.getElementById("message").innerHTML = "Select points to interpolate.";
+}
+
+
+function getCoors(e) {
+	var x = e.offsetX;
+    	var y = e.offsetY;
+	coordinates.push(x,y);
+	drawPoint(x,y);
+	if(coordinates.length > 38){
+		document.getElementById("message").innerHTML = "You can only select a maximum of 20 points.";
+		c.removeEventListener("click", getCoors);
+	}
+	document.getElementById("coords").innerHTML = "(" + x + ", " + y + ")";
+}
+
+function clearPoints(){
+		loadImage();
+	}
+
+function drawPoint(x,y){
+	var centerX = x;
+        var centerY = y;
+        var radius = 5;
+	ctx.beginPath();
+    	ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+	ctx.fillStyle = "red";
+	ctx.fill();
+	}
+
+function interpolate(){
+
+	var i = 0; 
+	iterations = coordinates.length - 2;
+	
+	coordinates.push(coordinates[-2],coordinates[-1]);
+	ctx.beginPath();
+	ctx.lineWidth = 3;
+	for(i; i < iterations; i = i+2){
+		ctx.moveTo(coordinates[i], coordinates[i+1]);
+		ctx.lineTo(coordinates[i+2], coordinates[i+3]);
+		ctx.stroke();
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>
