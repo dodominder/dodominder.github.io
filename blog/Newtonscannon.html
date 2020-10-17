@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="../images/favicon.ico" />
+<link rel="stylesheet" href="../styles/style.css" />
+<title>Dal9000</title>
+</head>
+<body>
+<img src="../images/logos.png" class="dallogo">
+<div class="navi">	
+<ul>
+  <li><a href="../index.html">Blog</a></li>
+  <li><a href="../papers.html">Papers</a></li>
+  <li><a href="../notes.html">Notes</a></li>
+  <li><a href="../about.html">About</a></li>
+</ul>
+</div>
+
+
+<div class="maintext" style="width:80%;">
+  <h3>Newton's Cannonball</h3>
+
+  <p>
+    Newton offered a thought experiment that demonstrates the connection between gravity on Earth's surface and celestial gravity. He imagined a cannon firing a ball off of a very tall mountain. Why a tall mountain? To avoid dealing with escape velocity. <br />
+    If the ball moves too slow it will be pulled back to Earth. If too fast it will go off into space. But if the ball is fired at the right speed it will go into an orbit. A balance between falling towards and away from Earth. 
+  </p>
+  <p style="padding:2px;">Gun Powder &nbsp<input type="range" min="0" max="100" value="0" class="slider" id="angleSlider"> <button style="padding:4px 9px; color:white; background-color: red; " onclick="fire()">FIRE!</button></p>
+
+<p>Gun Powder: <span id="value1">0</span> kilograms</p>
+
+
+
+<div style=" margin:6px;">
+<canvas id="canvas" width="720" height="480" style="border:1px solid #000000;">Your browser doesn't support the canvas tag.</canvas> 
+</div>
+
+<p>I was reviewing javascript, just to keep it fresh in my head, and I wrote this cannonball simulation to that end. 
+</p><p>
+  I also wrote this <a href="../boatinventory/boatApp.html" style="background-color:lime;">"app"</a> for my boss. He needed an easy way to keep track of boats he was renting out. 
+  Javascript is good for these quick little projects but I wouldn't build anything more complicated than this with it.</p>
+</div>
+
+
+
+<script>
+var ctx = document.getElementById('canvas').getContext('2d');
+var img = new Image();   
+img.src = "../images/backdropOfEarth.png";
+ctx.drawImage(img, 0, 0);
+
+
+var slider1 = document.getElementById("angleSlider");
+var output1 = document.getElementById("value1");
+
+
+slider1.oninput = function() {output1.innerHTML = this.value;}
+
+var gun_powder = slider1.value / 10;
+
+var combined_masses = 1000;
+var current_x = 395;
+var current_y = 175;
+var accel_x = 0;
+var accel_y = 0;
+var veloc_x = gun_powder;
+var veloc_y = 1;
+var delta_t = 0.3;
+var delta_x = 0;
+var delta_y = 0;
+
+function grav_force(x,y){
+	let dist = Math.sqrt(Math.pow((360 - x),2) +  Math.pow((240 - y),2));
+	if (dist < 59){
+		gun_powder = 0;
+		combined_masses = 0;
+		current_x = x;
+		current_y = y;
+		accel_x = 0;
+		accel_y = 0;
+		veloc_x = 0;
+		veloc_y = 0;
+		delta_t = 0;
+		delta_x = 0;
+		delta_y = 0;
+	}
+	let gravity = combined_masses / Math.pow(dist,2);
+	return gravity;
+}
+
+function init() {
+  window.requestAnimationFrame(draw);
+}
+
+function draw() {
+  
+  ctx.clearRect(0, 0, 720, 480); // clear canvas
+  ctx.fillStyle = 'rgb(0,0,0)';
+  ctx.drawImage(img, 0, 0);
+
+let gravitation = grav_force(current_x,current_y);
+let r = Math.sqrt(Math.pow((360 - current_x),2) +  Math.pow((240 - current_y),2));
+
+accel_x = ((gravitation * (360 - current_x))/r);
+accel_y = ((gravitation * (240 - current_y))/r);
+
+veloc_x = veloc_x + accel_x * delta_t;
+veloc_y = veloc_y + accel_y * delta_t;
+
+
+// Center of Earth
+//ctx.beginPath();
+//ctx.arc(360, 240, 5, 0, 2 * Math.PI);
+//ctx.fill();
+
+// Cannon Ball
+ctx.beginPath();
+ctx.arc(current_x, current_y, 4, 0, 2 * Math.PI);
+ctx.fill();
+
+current_x = current_x + veloc_x * delta_t;
+current_y = current_y + veloc_y * delta_t;
+
+  ctx.restore();
+
+if (Math.sqrt(Math.pow((360 - current_x),2) +  Math.pow((240 - current_y),2)) < 50){
+window.cancelAnimationFrame(draw);
+
+}
+
+  window.requestAnimationFrame(draw);
+
+
+}
+
+function fire(){
+
+combined_masses = 1000;
+gun_powder = slider1.value / 10;
+
+current_x = 395;
+current_y = 175;
+accel_x = 0;
+accel_y = 0;
+veloc_x = gun_powder;
+veloc_y = 1;
+delta_t = 0.3;
+delta_x = 0;
+delta_y = 0;
+
+
+
+
+window.cancelAnimationFrame(draw);
+}
+
+
+
+init();
+
+</script>
+
+</body>
+</html>

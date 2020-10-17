@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="../images/favicon.ico" />
+<link rel="stylesheet" href="../styles/style.css" />
+<title>Dal9000</title>
+</head>
+<body>
+<img src="../images/logos.png" class="dallogo">
+<div class="navi">	
+<ul>
+  <li><a href="../index.html">Blog</a></li>
+  <li><a href="../papers.html">Papers</a></li>
+  <li><a href="../notes.html">Notes</a></li>
+  <li><a href="../about.html">About</a></li>
+</ul>
+</div>
+
+
+<div class="maintext">
+<h1>The Meccanoid: Serial Servos Strike Back!</h1>
+<p>
+So I bought <a href="../blog/MeccanoSaga1.html">that robot from the thrift store</a> and didn't really have time to work on it, until today. 
+Instead of reinventing the wheel I decided to just look up some documentation on the servos. 
+All you need to know can be found here at <a href="https://meccontrol.com/">meccontrol.com</a>. I'm impressed and dissapointed. It
+impressed me by what they can do and how easy meccontrol makes it to control them, dissapointed by the serial nature of the commands. Also, they did not at all work the way I assumed they did in my last post about them. 
+
+</p><p>
+Meccontrol offers the software to control these servos with an arduino. To set anything in motion you'll need to send commands from a computer to the serial input of the arduino. 
+They offer a non-free software that makes writing commands easier but I don't think it's necessary. You can just write the commands out yourself in a script to the same effect. 
+</p>
+
+<p>
+    Four servos can be daisy chained together and controlled through a single pin on the arduino. They can send feedback on their rotation and location in the chain. Very cool stuff. The servos are a bit weak so I don't think linking more than two makes sense.  
+    To motivate working on this robot I tried writing a series of commands to get the robot to give out candy. It doesn't have any way to grip things so I tied a scoop to the end of the robot's arm and positioned it near a bowl of candy... This didn't work. The most the robot can do is fling candy onto the ground. 
+</p>
+
+<p>
+    This is progress. Since I know I can control it through an arduino I know I can control it with my cell phone. I'm going to try connecting a bluetooth module to the arduino and write my own android app to send serial commands to it. There are already apps to do this but I want a nice user interface that makes controlling the robot easy, obvious, and fun. 
+    If I can get this working I'll move on to giving it the autonomous behavior I really want it to have. 
+</p>
+
+</div>
+
+
+</body>
+</html>
